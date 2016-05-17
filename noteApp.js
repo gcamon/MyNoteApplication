@@ -1,33 +1,65 @@
 function NoteApplication(author){
 	this.author = author;
-	this.list = {} 
-	this.list.id = 0
-	this.list.content = []	
+	this.listContent = {} 
+	this.listContent.id = 0
+	this.listContent.content = []	
 }
 
 NoteApplication.prototype.create = function(note_content){
-	 this.list.id += 0
+	 this.listContent.id += 1;
+	 this.listContent.content.push(note_content);
 
 }
 
 NoteApplication.prototype.list = function(){
-	this.list.forEach(function(content){
+	console.log("note_id : " + this.listContent.id);
+	this.listContent.content.forEach(function(item){
+		console.log(item)
+	});
+	console.log("Author : " + this.author);
+};
 
-	})
-}
-
-NoteApplication.prototype.get =function(note_id){
-
-}
+NoteApplication.prototype.get = function(note_id){
+	for(var i = 0; i <= this.listContent.content.length; i++){
+		if( i  === note_id){
+			console.log(this.listContent.content[i - 1])
+		}; 
+	};
+};
 
 NoteApplication.prototype.search = function(search_text){
+	for(var i = 0; i < this.listContent.content.length; i++){
+		if(search_text === this.listContent.content[i]){
+	console.log( "Showing result for the " + this.listContent.content[i])
+			console.log("Note ID : " + this.listContent.id)
+			this.listContent.content.forEach(function(item){
+				console.log(item);
+			});
 
-}
+			console.log(this.author)
+		};
+	};
+};
 
 NoteApplication.prototype.delete = function(note_id){
-
-}
+	for(var i = 0; i <= this.listContent.content.length - 1; i++){
+		if(note_id === i){
+		    var j = i + 1
+			this.listContent.content.splice(j,1)
+		};
+	};
+};
 
 NoteApplication.prototype.edit = function(note_id,new_content){
+	for(var i = 0; i < this.listContent.content.length; i++){
+		if(note_id === i){
+			this.listContent.content[i] = new_content;
+		};
+	};
+};
 
-}
+
+
+
+
+
