@@ -30,22 +30,24 @@ NoteApplication.prototype.get = function(note_id){
 NoteApplication.prototype.search = function(search_text){
 	for(var i = 0; i < this.listContent.content.length; i++){
 		if(search_text === this.listContent.content[i]){
-	console.log( "Showing result for the " + this.listContent.content[i])
+	console.log( "Showing result for the search " + '"' + this.listContent.content[i] + '"')
 			console.log("Note ID : " + this.listContent.id)
 			this.listContent.content.forEach(function(item){
 				console.log(item);
 			});
 
-			console.log(this.author)
+			console.log("By Author : " + this.author)
 		};
 	};
 };
 
 NoteApplication.prototype.delete = function(note_id){
+    var j = this.listContent.content.length - 1
 	for(var i = 0; i <= this.listContent.content.length - 1; i++){
-		if(note_id === i){
-		    var j = i + 1
-			this.listContent.content.splice(j,1)
+	    j = i + 1
+	   
+		if(note_id === j){		    
+			this.listContent.content.splice(i,1)
 		};
 	};
 };
@@ -53,7 +55,7 @@ NoteApplication.prototype.delete = function(note_id){
 NoteApplication.prototype.edit = function(note_id,new_content){
 	for(var i = 0; i < this.listContent.content.length; i++){
 		if(note_id === i){
-			this.listContent.content[i] = new_content;
+			this.listContent.content[i - 1] = new_content;
 		};
 	};
 };
