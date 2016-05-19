@@ -9,7 +9,7 @@ describe("note application", function() {
     })
 
     it("should return note_content", function () {
-        expect(obinna.get(1)).toBe(true)
+        expect(obinna.get(0)).toBe(true)
     })
 
     it("should return search result", function () {
