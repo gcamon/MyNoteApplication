@@ -1,3 +1,4 @@
+
 describe("note application", function() {
     
     it("should create a content",function() {    	
@@ -9,11 +10,12 @@ describe("note application", function() {
     })
 
     it("should return note_content", function () {
-        expect(obinna.get(0)).toBe(true)
+        expect(obinna.get(1)).toBe(true)
     })
 
     it("should return search result", function () {
         expect(obinna.search("i have a dream")).toBe("found")
+        expect(obinna.search("")).toBe("not found")
     })
 
     it("should delete note_content", function () {
